@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Mashed Potato",
+        "rating": [],
+        "currentRating": "4.7",
+        "categories": ["makanan non kuah", "murah"]
+    },
+    {   
+        "name": "Sate Taichan",
+        "rating": [],
+        "currentRating": "4.6",
+        "categories": ["makanan non kuah", "murah", "non sayur"]
+    },
+    {
+        "name": "Kebab",
+        "rating": [],
+        "currentRating": "4.8",
+        "categories": ["makanan non kuah", "murah", "sayur"]
+    },
+    {
+        "name": "Cah Kangkung",
+        "rating": [],
+        "currentRating": "4.5",
+        "categories": ["makanan berkuah", "murah", "sayur"]
+    },
+    {
+        "name": "Sayur Bening Bayam Jagung",
+        "rating": [],
+        "currentRating": "4.9",
+        "categories": ["makanan berkuah", "murah", "sayur"]
+    }
+]

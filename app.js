@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const ejs = require("ejs");
 var _ = require('lodash');
+// const foodsData = require("./config/foods.json")
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 // connect to DB
-mongoose.connect(process.env.DB, { useNewUrlParser : true});
+mongoose.connect("mongodb://localhost:27017/makanyukDB", { useNewUrlParser : true});
 
 // DB model
 const foodSchema = new mongoose.Schema({
@@ -47,8 +48,8 @@ const User = mongoose.model("User", userSchema);
 app.get('/', async(req, res) =>{
     try{
         // return sorted food based on rating
-        const foods = await Food.find({});
-        foods.sort((a, b) => a.currentRating - b.currentRating);
+        let foods = await Food.find({});
+        foods.sort((a, b) => b.currentRating - a.currentRating);
 
         const response = {
             error: false,
@@ -68,13 +69,14 @@ app.get('/categories', async(req, res) => {
     }
 });
 
-app.get('/category-search', async(req, res) => {
+app.get('/categorysearch', async(req, res) => {
     try{
         const foods = await Food.find({});
         const response = {
             error: false,
             foods
         }
+        res.status(200).json(response)
     }catch(err){
         res.status(500).json({error: true, message: "Internal Server Error"});
     }
@@ -87,7 +89,7 @@ app.get('/foods/:foodName', async(req, res)=>{
         for (let i = 0; i < foods.length; i++){
             if (_.lowerCase(foods[i].name) === _.lowerCase(req.params.foodName)){
                 found = true;
-                res.status(200).json({error: true, food: foods[i]});
+                res.status(200).json({error: false, food: foods[i]});
             }
         }
         if (!found){
@@ -98,6 +100,38 @@ app.get('/foods/:foodName', async(req, res)=>{
     }
 });
 
+app.get('/toprated', async(req, res)=>{
+    try{
+        let foods = await Food.find({});
+        foods.sort((a, b) => b.currentRating - a.currentRating);
+        foods = foods.slice(0, 3);
+        res.status(200).json({error: false, foods : foods});
+    }catch{
+        res.status(500).json({error: true, message: "Internal Server Error"});   
+    }
+});
+
+app.get('/about', (req, res)=>{
+    try{
+        res.status(200).json({error: false});
+    }catch{
+        res.status(500).json({error: true});
+    }
+});
+
+// const insertFoods = async () => {
+//     try{
+//         const docs = await Food.insertMany(foodsData);
+//         return Promise.resolve(docs);
+//     }catch{
+//         return Promise.reject(err);
+//     }
+// };
+
+// insertFoods()
+//     .then((docs) => console.log(docs))
+//     .catch((err)=> console.log(err));
+
 app.listen(port, ()=> {
-    console.log("Server started on port 3000");
+    console.log("Server started on port" + port);
 });
