@@ -1,0 +1,1 @@
+ini saya coba coba aja guys, untuk proporsi/unit yang dipake agak wack dan tidak sesuai dengan yang di figma, gunakan file html/css ini sebagai petunjuk aja untuk membuat page "create your account" , untuk file "screenshot", itu SS web yang gw jalanin di lokal, terlalu kebesaran sebenarnya hehe, maaf baru belajar html/css 2 hari yang lalu welp
