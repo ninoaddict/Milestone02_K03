@@ -1,0 +1,88 @@
+*{
+    padding: 0;   
+    margin: 0;
+    overflow: hidden;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+header nav a {
+    display: flex;
+    width: 108px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}
+
+footer a {
+    display: flex;
+    width: 108px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.container-fluid{
+    display: flex;
+    gap: 150px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #0F120E 0%, #073238 100%);
+    height: 258px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-left: 71px;
+}
+
+.footerlogo{
+    display: inline-block;
+}
+
+.footertext{
+    display: inline-flex;
+    align-items: center;  
+    margin-right: 2.7rem;
+}
+
+.footerlink{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.itb{
+    display: inline-flex;
+    gap: 30px;
+}
+
+.itbloc{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

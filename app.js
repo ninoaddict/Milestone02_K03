@@ -13,6 +13,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(express.static("public"));
+
 // connect to DB
 mongoose.connect("mongodb://localhost:27017/makanyukDB", { useNewUrlParser : true});
 
@@ -55,7 +57,8 @@ app.get('/', async(req, res) =>{
             error: false,
             foods
         };
-        res.status(200).json(response);
+        res.render("home", response);
+        //res.status(200).json(response);
     } catch(err){
         res.status(500).json({error: true, message: "Internal Server Error"});
     }
@@ -105,7 +108,8 @@ app.get('/toprated', async(req, res)=>{
         let foods = await Food.find({});
         foods.sort((a, b) => b.currentRating - a.currentRating);
         foods = foods.slice(0, 3);
-        res.status(200).json({error: false, foods : foods});
+        // res.status(200).json({error: false, foods : foods});
+        res.render("toprated", {foods : foods, pageTitle : ""});
     }catch{
         res.status(500).json({error: true, message: "Internal Server Error"});   
     }
