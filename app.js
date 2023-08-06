@@ -107,9 +107,8 @@ app.get('/toprated', async(req, res)=>{
     try{
         let foods = await Food.find({});
         foods.sort((a, b) => b.currentRating - a.currentRating);
-        foods = foods.slice(0, 3);
         // res.status(200).json({error: false, foods : foods});
-        res.render("toprated", {foods : foods, pageTitle : ""});
+        res.render("toprated", {foods : foods, pageTitle : "", month: "Agustus"});
     }catch{
         res.status(500).json({error: true, message: "Internal Server Error"});   
     }
