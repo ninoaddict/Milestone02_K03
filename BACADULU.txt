@@ -1,0 +1,5 @@
+WARNING ! ini hanya example page "about us", karena 
+page ini saya hanya gunakan html dan css jadi kayanya ga bisa digunain
+page ini digunakan sebagai petunjuk saja
+Unit dan proporsi web tidak jelas soalnya, maaf baru pertama kali megang css/html 
+-marvel

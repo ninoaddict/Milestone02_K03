@@ -1,0 +1,298 @@
+.outer{
+    display: flex;
+    justify-content: center;
+    
+
+}
+.MainBackground{
+    width: 90rem;
+    height: 72.125rem;
+    margin-left: 0;
+    margin-right: 25px;
+    position: relative;
+
+}
+
+.topImage {
+    width: 92.32806rem;
+    height: 50rem;
+    
+    flex-shrink: 0;
+    background-image: url(./assets/top.png);
+    background-repeat: no-repeat;
+
+}
+
+#loginBut{
+    border-radius: 1rem;
+    background: #000;
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+#LogoLeft{
+ 
+width: 3.3125rem;
+height: 2.9375rem;
+}
+
+.Nav{
+    display:flex;
+    height: 2.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-shrink: 0;
+}
+
+.Nav > p{
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+.create{
+    color: #FFF;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+}
+
+.username {
+    width: 23.5625rem;
+    height: 1.9375rem;
+    background-color: white;
+    border-radius: 1.875rem;
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);   
+    
+
+}
+
+.user{
+    color: rgba(0, 0, 0, 0.50);
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: rgba(0, 0, 0, 0.50);
+    text-align: left;
+    margin-left:10px ;
+    margin-top: 5px;
+   
+}
+
+
+.buttoncontainer button{
+    display: flex;
+    width: 10.9375rem;
+    height: 2.5625rem;
+    padding: 0.98194rem 2.61856rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.98194rem;
+    flex-shrink: 0;
+    border-radius: 2.45488rem;
+    background: #000;
+    box-shadow: 0px 6.54639196395874px 5.2371134757995605px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.buttoncontainer{
+    margin-top:16px;
+}
+
+.cont{
+    display:inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90rem;
+    height: 400rem;
+}
+.bottomPage{
+
+    
+    height: 16.125rem;
+    flex-shrink: 0;
+    width: 1440px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #0F120E 0%, #073238 100%);
+    position: absolute;
+    margin-top: 4000px;
+
+}
+
+.bottomPage img{
+    width: 32.25656rem;
+    height: 6.9375rem;
+    flex-shrink: 0;
+}
+
+.contentBottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 75px;
+}
+.contentBottom a{
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration-line: underline;
+    
+}
+.gane{
+    width: 5.25rem;
+    height: 6.25rem;
+    flex-shrink: 0;
+    background: url(./assets/GaneLog.png)
+}
+.alamat p {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.90744rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+.alamat{
+    width:400px;
+}
+
+.create p{
+    color: #000;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-top: 450px;
+    font-weight: bold;
+    
+}
+
+ .logoNew{
+    width: 11.91088rem;
+    height: 10.5625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 100px;
+}
+
+
+.create img{
+    width: 30.63394rem;
+    object-fit: cover
+
+}
+
+#leftlogo{
+    width: 11.91088rem;
+    height: 11.5625rem;
+    position: absolute;
+    right: 375px;
+    bottom: 50px;
+ 
+    
+
+} 
+
+.card{
+    width: 29.6875rem;
+    height: 29.6875rem;
+    flex-shrink: 0;
+    border-radius: 1.875rem;
+    background: linear-gradient(180deg, #FFEE80 0%, rgba(255, 253, 238, 0.00) 100%);
+    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#first-card{
+    margin-bottom: 100px;
+}
+.card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.abovebottom{
+    
+    width: 1440px;
+    height: 60.83956rem;
+    position: absolute;
+    flex-shrink: 0;
+    background: url(./assets/bottomofpagetrans.png);
+    background-repeat: no-repeat;
+    margin-top:3250px ;
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+.card img{
+    margin-top: 30px;
+    width: 60%;
+}
+
+.nama{
+    color: #000;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: Bold;
+    line-height: normal;
+
+    
+}
+.role{
+    color: #000;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.abovebottom h2{
+        color: #FFF;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.abovebottom p{
+    color: #FFF;
+text-align: center;
+font-family:'Poppins', sans-serif;
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+}
