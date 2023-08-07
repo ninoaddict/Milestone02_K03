@@ -1,0 +1,90 @@
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.image img {
+    width: 20vw;
+    position: relative;
+    z-index: 1;
+    margin-left: 20vw;
+    top: 8vh;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+.image span {
+    border-radius: 30px;
+    background: #6ACE66;
+    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    width: 20vw;
+    height: 13vh;
+    position: relative;
+    margin-left: 20vw;
+}
+
+line {
+    background: #000;
+    width: 50vw;
+    height: 2px;
+}
+
+h3 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.description {
+    border-radius: 30px;
+    background: #EFEDED;
+    width: 30vw;
+    height: 20vh;
+    padding: 1rem;
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.star {
+    position: relative;
+    bottom: 5vh;
+}
+
+.tags span {
+    color: #000;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 30px;
+    background: #EFEDED;
+    padding: 0.3rem 2rem;
+}
+
+.price {
+    color: #000;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 30px;
+    background: #EFEFEF;
+    margin-top: 3vh;
+    text-align: center;
+    padding: 1rem 0;
+}
