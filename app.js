@@ -50,11 +50,8 @@ const userSchema = new mongoose.Schema({
     username: String,
     password: String,
     favoriteCategories: [String],
-    favoriteFood: [foodSchema],
-    ratingGiven: [{
-        foodName: String,
-        rating: Number
-    }]
+    favoriteFood: [String],
+    ratingGiven: [String]
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -66,6 +63,11 @@ const User = new mongoose.model("User", userSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next();
+})
 
 // HTTP Request
 app.get('/', async(req, res) =>{
@@ -108,7 +110,7 @@ app.get('/categories', async(req, res) => {
             myacc = "Login";
             redir= "/login";
         }
-        res.status(200).json({error: false});
+        res.render('categories', {myacc: myacc, redir: redir});
     }catch(err){
         res.status(500).json({error: true, message: "Internal Server Error"});
     }
@@ -195,7 +197,11 @@ app.get('/about', (req, res)=>{
 
 app.get('/login', (req, res)=>{
     try{
-        res.render("login");
+        if (req.isAuthenticated()){
+            res.redirect('/')
+        }else{
+            res.render('login')
+        }
     }
     catch{
         res.status(500).json({error: true});
@@ -204,7 +210,11 @@ app.get('/login', (req, res)=>{
 
 app.get('/register', (req, res)=>{
     try{
-        res.render("register");
+        if (req.isAuthenticated()){
+            res.redirect('/')
+        }else{
+            res.render('register')
+        }
     }
     catch{
         res.status(500).json({error: true});
@@ -238,10 +248,25 @@ app.post('/login', (req, res)=>{
             console.log(err);
         }else{
             passport.authenticate("local")(req, res, function(){
-                res.redirect('/')
+                res.redirect('/');
             });
         }
     });
+})
+
+app.get('/eatlist', (req, res)=>{
+    try{
+        if (req.isAuthenticated()){
+            let myacc = "My Account";
+            let redir = "/myaccount";
+            res.render("eatlist", {myacc: myacc, redir: redir});
+        }else{
+            res.redirect('/login')
+        }
+    }
+    catch{
+        res.status(500).json({error: true});
+    }
 })
 
 app.listen(port, ()=> {
