@@ -26,9 +26,13 @@ Adril Putra Merin - 19622060 - Berkontribusi dalam pembuatan Frontend, Backend, 
 Muhammad Yusuf Rafi - 19622038
 Diana Tri Handayani - 19622155
 Hartanto Luwis - 19622032
-Rizqi Andhika Pratama - 19622295
+Rizqi Andhika Pratama - 19622295 - Merancang Low Fidelity, Membuat UI/UX Website; 
+Background colors, main page, search page, product view, and ratings
+
 Marvel Pangondian - 19622023
-Irfan Musthofa - 19622196
+Irfan Musthofa - 19622196 -  Merancang Design System, Membuat UI/UX Website; Login Page, 
+Create Account Page, Reset Password Page, About Us Page, My Account Page, Main Page
+
 Suthasoma Mahardhika Munthe - 19622088
 Lutfi Khairul Amal - 19622156
 
