@@ -3,21 +3,31 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const ejs = require("ejs");
 var _ = require('lodash');
+require('dotenv').config();
+const session = require('express-session');
+const passport = require('passport')
+const passportLocalMongoose = require('passport-local-mongoose');
 // const foodsData = require("./config/foods.json")
 
 const app = express();
-
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(express.static("public"));
+
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // connect to DB
 mongoose.connect("mongodb://localhost:27017/makanyukDB", { useNewUrlParser : true});
-
+// mongoose.set("useCreateIndex", true);
 // DB model
 const foodSchema = new mongoose.Schema({
     name: String,
@@ -27,7 +37,12 @@ const foodSchema = new mongoose.Schema({
         review: String
     }],
     currentRating: Number,
-    categories: [String]
+    categories: [String],
+    price : Number,
+    kalori: Number,
+    lemak: Number,
+    karbohidrat: Number,
+    protein: Number
 });
 
 const userSchema = new mongoose.Schema({
@@ -42,9 +57,15 @@ const userSchema = new mongoose.Schema({
     }]
 });
 
+userSchema.plugin(passportLocalMongoose);
+
 // establish db collection
 const Food = mongoose.model("Food", foodSchema);
-const User = mongoose.model("User", userSchema);
+const User = new mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // HTTP Request
 app.get('/', async(req, res) =>{
@@ -53,9 +74,21 @@ app.get('/', async(req, res) =>{
         let foods = await Food.find({});
         foods.sort((a, b) => b.currentRating - a.currentRating);
 
+        var myacc;
+        var redir;
+        if (req.isAuthenticated()){
+            myacc = "My Account";
+            redir = "/myaccount"
+        }else{
+            myacc = "Login";
+            redir= "/login";
+        }
+
         const response = {
+            myacc : myacc,
+            redir : redir,
             error: false,
-            foods
+            foods : foods
         };
         res.render("home", response);
         //res.status(200).json(response);
@@ -66,6 +99,15 @@ app.get('/', async(req, res) =>{
 
 app.get('/categories', async(req, res) => {
     try{
+        var myacc;
+        var redir;
+        if (req.isAuthenticated()){
+            myacc = "My Account";
+            redir = "/myaccount"
+        }else{
+            myacc = "Login";
+            redir= "/login";
+        }
         res.status(200).json({error: false});
     }catch(err){
         res.status(500).json({error: true, message: "Internal Server Error"});
@@ -74,8 +116,19 @@ app.get('/categories', async(req, res) => {
 
 app.get('/categorysearch', async(req, res) => {
     try{
+        var myacc;
+        var redir;
+        if (req.isAuthenticated()){
+            myacc = "My Account";
+            redir = "/myaccount"
+        }else{
+            myacc = "Login";
+            redir= "/login";
+        }
         const foods = await Food.find({});
         const response = {
+            myacc: myacc,
+            redir: redir,
             error: false,
             foods
         }
@@ -105,10 +158,19 @@ app.get('/foods/:foodName', async(req, res)=>{
 
 app.get('/toprated', async(req, res)=>{
     try{
+        var myacc;
+        var redir;
+        if (req.isAuthenticated()){
+            myacc = "My Account";
+            redir = "/myaccount"
+        }else{
+            myacc = "Login";
+            redir= "/login";
+        }
         let foods = await Food.find({});
         foods.sort((a, b) => b.currentRating - a.currentRating);
         // res.status(200).json({error: false, foods : foods});
-        res.render("toprated", {foods : foods, pageTitle : "", month: "Agustus"});
+        res.render("toprated", {foods : foods, pageTitle : "", month: "Agustus", myacc: myacc, redir : redir});
     }catch{
         res.status(500).json({error: true, message: "Internal Server Error"});   
     }
@@ -116,24 +178,71 @@ app.get('/toprated', async(req, res)=>{
 
 app.get('/about', (req, res)=>{
     try{
-        res.render("about");
+        var myacc;
+        var redir;
+        if (req.isAuthenticated()){
+            myacc = "My Account";
+            redir = "/myaccount"
+        }else{
+            myacc = "Login";
+            redir= "/login";
+        }
+        res.render("about", {myacc : myacc, redir: redir});
     }catch{
         res.status(500).json({error: true});
     }
 });
 
-// const insertFoods = async () => {
-//     try{
-//         const docs = await Food.insertMany(foodsData);
-//         return Promise.resolve(docs);
-//     }catch{
-//         return Promise.reject(err);
-//     }
-// };
+app.get('/login', (req, res)=>{
+    try{
+        res.render("login");
+    }
+    catch{
+        res.status(500).json({error: true});
+    }
+})
 
-// insertFoods()
-//     .then((docs) => console.log(docs))
-//     .catch((err)=> console.log(err));
+app.get('/register', (req, res)=>{
+    try{
+        res.render("register");
+    }
+    catch{
+        res.status(500).json({error: true});
+    }
+}); 
+
+app.post('/register', (req, res) => {
+    if (req.body.password == req.body.confirmpassword){
+        User.register({username: req.body.username, email: req.body.email, favoriteCategories: [], favoriteFood: [], ratingGiven: []}, req.body.password, (err, user)=>{
+            if (err){
+                console.log(err);
+                res.redirect('/register');
+            }else{
+                passport.authenticate("local")(req, res, function(){
+                    res.redirect('/');
+                })
+            }
+        });
+    }else{
+        res.redirect("/register");
+    }
+})
+
+app.post('/login', (req, res)=>{
+    const user = new User({
+        username: req.body.username,
+        password: req.body.password
+    });
+    req.login(user, function(err){
+        if (err){
+            console.log(err);
+        }else{
+            passport.authenticate("local")(req, res, function(){
+                res.redirect('/')
+            });
+        }
+    });
+})
 
 app.listen(port, ()=> {
     console.log("Server started on port" + port);
