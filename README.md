@@ -32,7 +32,7 @@ Hartanto Luwis - 19622032
 Rizqi Andhika Pratama - 19622295 - Merancang Low Fidelity, Membuat UI/UX Website; 
 Background colors, main page, search page, product view, and ratings
 
-Marvel Pangondian - 19622023
+Marvel Pangondian - 19622023 - Membuat file example dari about page dan creating account page (html/css)
 
 Irfan Musthofa - 19622196 - Merancang Design System, Membuat UI/UX Website; Login Page, 
 Create Account Page, Reset Password Page, About Us Page, My Account Page, Main Page
