@@ -116,7 +116,7 @@ app.get('/toprated', async(req, res)=>{
 
 app.get('/about', (req, res)=>{
     try{
-        res.status(200).json({error: false});
+        res.render("about");
     }catch{
         res.status(500).json({error: true});
     }
