@@ -7,3 +7,5 @@ William Glory - 19622114 - Berkontribusi dalam pembuatan frontend
 Evelyn Yosiana - 19622006 - Melakukan riset pencarian data makanan-makanan yang sering dimakan oleh mahasiswa, mencari dan mengumpulkan informasi gizi dari masing-masing makanan, dan membuat kategori dari makanan yang telah dicari
 
 Dama Dhananjaya Daliman - 19622002 - Berkontribusi dalam pembuatan frontend
+
+Adril Putra Merin - 19622060 - Berkontribusi dalam pembuatan Frontend, Backend, dan Database
