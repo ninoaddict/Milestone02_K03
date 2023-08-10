@@ -34,7 +34,7 @@ Background colors, main page, search page, product view, and ratings
 
 Marvel Pangondian - 19622023 - Membuat file example dari about page dan creating account page (html/css)
 
-Irfan Musthofa - 19622196 - Merancang Design System, Membuat UI/UX Website; Login Page, 
+Irfan Musthofa - 19622196 - Merancang Fitur dalam Website MakanYuk!, Merancang Design System untuk UI/UX, Membuat UI/UX Website; Login Page, 
 Create Account Page, Reset Password Page, About Us Page, My Account Page, Main Page
 
 Suthasoma Mahardhika Munthe - 19622088
