@@ -1,18 +1,33 @@
-# Milestone 2 Kelompok 3
+<p align="center">
+<img src="public/asset/LOGO.png" alt="Ganesha Space Logo" width="500">
+</p>
 
-# Deskripsi singkat
+# Deskripsi
 Gaya hidup mahasiswa yang tinggal di kos seringkali menghadapi masalah dalam pemenuhan nutrisi yang seimbang dan bergizi karena keterbatasan waktu, keterampilan memasak, pengetahuan tentang gizi, dan ekonomi yang terbatas. Survei menunjukkan rendahnya kesadaran mahasiswa akan pentingnya pola makan yang sehat, dengan banyak dari mereka hanya makan tidak teratur dan jarang mengonsumsi sayuran, buah-buahan, susu, atau suplemen makanan. Kurangnya akses informasi dan anggaran yang terbatas menjadi faktor utama masalah ini. Untuk mengatasi permasalahan ini, akhirnya kelompok kami mengusulkan ide pembuatan Website Makan Yuk untuk menyediakan informasi terkait menu-menu makanan sehat.
 
 Adapun desain high fidelity awal yang dirancang untuk website kami adalah seperti pada figma berikut: https://www.figma.com/file/HP51i8j7bYqRbUeX99o268/Milestone-3---Makan-Yuk!?type=design&node-id=0%3A1&mode=design&t=v60Trw3pJUU67LvE-1
 
-# Requirement
-Node.js
+# Frameworks
+- NodeJS and ExpressJS (Backend)
+- Bootstrap (Frontend)
+- MongoDB (Database)
+- PassportJS (Authentication)
 
-# Cara menggunakan
+# Pages
+- Home Page
+- Food Search Page
+- Food Page
+- Eatlist
+- Dashboard
+- Login
+- Register
+- Top Rated
+
+# Cara Penggunaan
 Clone repo dan jalankan node
 Buka di localhost port 3000 (localhost:3000)
 
-# 
+# Pembagian Tugas
 Shabrina Maharani - 19622308 - Melakukan riset pencarian data makanan-makanan yang sering dimakan oleh mahasiswa, mencari dan mengumpulkan informasi gizi dari masing-masing makanan, dan membuat kategori dari makanan yang telah dicari
 
 William Glory - 19622114 - Berkontribusi dalam pembuatan frontend
